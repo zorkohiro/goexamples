@@ -23,10 +23,12 @@ func main() {
 	ord := os.Args[2]
 
 	d := os.Getenv("DEBUG")
-	switch d[0] {
-	case 'Y', 'y', '1':
-		debug = true
-		log.Println("debugging on")
+	if d != "" {
+		switch d[0] {
+		case 'Y', 'y', '1':
+			debug = true
+			log.Println("debugging on")
+		}
 	}
 
 	// Split out the end filename component of the URL
