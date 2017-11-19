@@ -21,6 +21,10 @@ func startit() (<- chan string) {
 }
 
 func main() {
+	var foo chan string
+	fmt.Println("uninitialized channel:", len(foo), cap(foo))
+	foo = make(chan string, 10)
+	fmt.Println("initialized channel:", len(foo), cap(foo))
 	t := startit()
 
 	i := 1
