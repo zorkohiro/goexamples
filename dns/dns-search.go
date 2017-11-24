@@ -10,10 +10,5 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	log.Println(addrs)
-	s, srv, err := net.LookupSRV("bookshelf", "tcp", "local")
-	if err != nil {
-		log.Fatal(err)
-	}
-	log.Println(s, srv)
+	log.Println("youpc", addrs)
 }
