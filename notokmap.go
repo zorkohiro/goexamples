@@ -36,8 +36,14 @@ func main() {
 	fmt.Println("found xbar, x is <", x, "<", reflect.TypeOf(x))
 	y, ok := zz["nonsense"]
 	if ok {
-		fmt.Println("shouldn't have found nonsensexbar, y is <", y, "<", reflect.TypeOf(y))
+		fmt.Println("shouldn't have found nonsense, y is <", y, "<", reflect.TypeOf(y))
 		return
 	}
 	fmt.Println("didn't find nonsense, y is:<", y, ">", reflect.TypeOf(y))
+	k, ok := zz[""]
+	if ok {
+		fmt.Println("shouldn't have found ankthing, k is <", k, "<", reflect.TypeOf(k))
+		return
+	}
+	fmt.Println("found nothing, k is:<", k, ">", reflect.TypeOf(k))
 }
