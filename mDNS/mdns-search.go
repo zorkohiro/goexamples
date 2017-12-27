@@ -9,7 +9,7 @@ import (
 )
 
 const (
-	service = "_spasebow._tcp"
+	service = "_workstation._tcp"
 )
 
 func main() {
