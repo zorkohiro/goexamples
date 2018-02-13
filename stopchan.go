@@ -1,7 +1,8 @@
 package main
+
 import (
-	"time"
 	"fmt"
+	"time"
 )
 
 func threat(pipe chan<- string, stop <-chan bool) {
@@ -18,27 +19,27 @@ func threat(pipe chan<- string, stop <-chan bool) {
 	}
 }
 
-func startit(stopit <-chan bool) (<- chan string) {
+func startit(stopit <-chan bool) <-chan string {
 	threats := make(chan string)
 	go threat(threats, stopit)
 	return threats
-	
+
 }
 
 func main() {
 	stopit := make(chan bool)
 	t := startit(stopit)
 
-	for i := 0;; i++ {
+	for i := 0; ; i++ {
 		s, ok := <-t
-		if ! ok {
+		if !ok {
 			break
 		}
 		if s == "" {
 			break
 		}
 		fmt.Println(i+1, s)
-		if (i+1 == 10) {
+		if i+1 == 10 {
 			fmt.Println("tell threat to stop")
 			stopit <- true
 		}

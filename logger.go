@@ -6,6 +6,6 @@ import (
 )
 
 func main() {
-	loghdl := log.New(os.Stdout, "logger ", log.LstdFlags | log.LUTC)
+	loghdl := log.New(os.Stdout, "logger ", log.LstdFlags|log.LUTC)
 	loghdl.Println("got me")
 }

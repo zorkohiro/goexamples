@@ -6,8 +6,9 @@ import (
 	"log"
 	"os/exec"
 )
+
 const (
-	ab = "avahi-browse"
+	ab     = "avahi-browse"
 	abargs = "-at"
 )
 

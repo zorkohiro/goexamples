@@ -1,10 +1,10 @@
 package main
 
 import (
-	"log"
-	"time"
 	"github.com/boltdb/bolt"
 	"github.com/satori/go.uuid"
+	"log"
+	"time"
 )
 
 func main() {

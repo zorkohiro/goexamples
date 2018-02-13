@@ -1,8 +1,9 @@
 package main
+
 import (
-	"time"
 	"fmt"
 	"strconv"
+	"time"
 )
 
 func threat(pipe chan<- string) {
@@ -13,11 +14,11 @@ func threat(pipe chan<- string) {
 	close(pipe)
 }
 
-func startit() (<- chan string) {
+func startit() <-chan string {
 	threats := make(chan string)
 	go threat(threats)
 	return threats
-	
+
 }
 
 func main() {

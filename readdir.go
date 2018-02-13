@@ -8,11 +8,13 @@ import (
 func main() {
 	var ndir, j int
 
-	fp, err := os.Open(os.Args[1]); if err != nil {
+	fp, err := os.Open(os.Args[1])
+	if err != nil {
 		fmt.Println(err)
 		return
 	}
-	fpinfo, err := fp.Readdir(0); if err != nil {
+	fpinfo, err := fp.Readdir(0)
+	if err != nil {
 		fmt.Println(err)
 		return
 	}

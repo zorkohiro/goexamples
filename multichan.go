@@ -1,4 +1,5 @@
 package main
+
 import (
 	"fmt"
 	"os"
@@ -21,20 +22,19 @@ func foo() {
 		case c2 := <-bobchan:
 			fmt.Println("bob got", c2)
 		}
-		looper++;
+		looper++
 	}
 }
-
 
 func main() {
 	fredchan = make(chan string, 100)
 	bobchan = make(chan int, 100)
 	go foo()
 
-	fredchan<- "fred"
+	fredchan <- "fred"
 	time.Sleep(time.Second)
-	bobchan<- 1
-	time.Sleep(5*time.Second)
+	bobchan <- 1
+	time.Sleep(5 * time.Second)
 	fredchan <- "exit"
 	time.Sleep(time.Second)
 	for {

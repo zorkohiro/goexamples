@@ -5,9 +5,9 @@ import (
 	"net"
 )
 
-
 func main() {
-	alist, err := net.InterfaceAddrs(); if err != nil {
+	alist, err := net.InterfaceAddrs()
+	if err != nil {
 		log.Fatal(err)
 	}
 

@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"time"
 	"github.com/hashicorp/mdns"
+	"time"
 )
 
 func main() {

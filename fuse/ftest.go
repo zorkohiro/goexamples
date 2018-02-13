@@ -1,13 +1,13 @@
 package main
 
 import (
-	"io"
-	"os"
-	"syscall"
 	"github.com/hanwen/go-fuse/fuse"
 	"github.com/hanwen/go-fuse/fuse/nodefs"
 	"github.com/hanwen/go-fuse/fuse/pathfs"
 	log "github.com/sirupsen/logrus"
+	"io"
+	"os"
+	"syscall"
 )
 
 var srcdir string
@@ -16,13 +16,12 @@ type testfs struct {
 	pathfs.FileSystem
 }
 
-
 // linux syscall stat to fuse Attr
 func ls_to_fs(a *syscall.Stat_t, b *fuse.Attr) {
 	b.Size = uint64(a.Size)
 	b.Blocks = uint64(a.Blocks)
 	b.Atime = uint64(a.Atim.Sec)
-	b.Atimensec  = uint32(a.Atim.Nsec)
+	b.Atimensec = uint32(a.Atim.Nsec)
 	b.Mtime = uint64(a.Mtim.Sec)
 	b.Mtimensec = uint32(a.Mtim.Nsec)
 	b.Ctime = uint64(a.Ctim.Sec)
@@ -79,24 +78,22 @@ func (me *testfs) OpenDir(name string, context *fuse.Context) ([]fuse.DirEntry, 
 //	return fuse.ENOSYS
 //}
 
-
 func (me *testfs) Open(name string, flags uint32, context *fuse.Context) (nodefs.File, fuse.Status) {
-        if flags&fuse.O_ANYWRITE != 0 {
-                return nil, fuse.EPERM
-        }
+	if flags&fuse.O_ANYWRITE != 0 {
+		return nil, fuse.EPERM
+	}
 	fullname := srcdir + "/" + name
 	log.Infof("OpenDir %s", fullname)
 	return nil, fuse.EPERM
 	// return nodefs.NewDataFile([]byte(name)), fuse.OK
 }
 
-
 func main() {
 	if len(os.Args) != 3 {
 		log.Fatal("Usage: testfs SRCDIR MOUNTPOINT")
 	}
 	srcdir = os.Args[1]
-        fs := pathfs.NewPathNodeFs(&testfs{FileSystem: pathfs.NewReadonlyFileSystem(pathfs.NewDefaultFileSystem())}, nil)
+	fs := pathfs.NewPathNodeFs(&testfs{FileSystem: pathfs.NewReadonlyFileSystem(pathfs.NewDefaultFileSystem())}, nil)
 	conn := nodefs.NewFileSystemConnector(fs.Root(), nil)
 	mountopts := fuse.MountOptions{}
 	mountopts.FsName = "ftest"

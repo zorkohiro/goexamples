@@ -10,7 +10,7 @@ import (
 )
 
 const (
-	service	= "_spasebow._tcp"
+	service = "_spasebow._tcp"
 )
 
 func main() {

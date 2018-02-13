@@ -1,8 +1,11 @@
 package main
+
 import (
 	"fmt"
+	"reflect"
 	"time"
 )
+
 func main() {
 	t := time.Now()
 	fmt.Printf("now is: %v\n", t)
@@ -14,4 +17,10 @@ func main() {
 	fmt.Println("sleeping", i, "seconds on", time.Now().Format("Mon Jan 2 15:04:05 2006"))
 	time.Sleep(time.Duration(i) * time.Second)
 	fmt.Println("        sleep done on", time.Now().Format("Mon Jan 2 15:04:05 2006"))
+	t, err := time.Now().GobEncode()
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	fmt.Println(t, reflect.TypeOf(t))
 }

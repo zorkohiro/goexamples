@@ -1,18 +1,18 @@
 package main
 
 import (
-	"log"
 	"io"
-	"os"
+	"log"
 	"net/http"
+	"os"
 )
 
 func main() {
 
 	if len(os.Args) != 2 {
-                log.Fatal("usage: httpfetch url")
+		log.Fatal("usage: httpfetch url")
 	}
-        url := os.Args[1]
+	url := os.Args[1]
 	//
 	// We read from standard input
 	//
@@ -34,7 +34,7 @@ func main() {
 					_, err = f.Write(b[:n])
 				}
 				f.Close()
-				break	
+				break
 			}
 			log.Fatal(err)
 		}

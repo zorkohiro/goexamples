@@ -11,6 +11,6 @@ func main() {
 		input = append(input, s)
 	}
 	fmt.Println(input)
-	input = append(input[:0],input[1:]...)
+	input = append(input[:0], input[1:]...)
 	fmt.Println(input)
 }

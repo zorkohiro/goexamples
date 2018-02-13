@@ -6,7 +6,7 @@ import (
 )
 
 type zop struct {
-	i	int
+	i int
 }
 
 func main() {

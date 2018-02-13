@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-func bob(fred bool) (bool) {
+func bob(fred bool) bool {
 	return !fred
 }
 func main() {

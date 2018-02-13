@@ -1,10 +1,10 @@
 package main
 
 import (
-	"path/filepath"
 	"fmt"
 	"log"
 	"os"
+	"path/filepath"
 )
 
 func main() {

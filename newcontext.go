@@ -1,10 +1,10 @@
 package main
 
 import (
+	"golang.org/x/net/context"
+	"google.golang.org/grpc/peer"
 	"log"
 	"net"
-	"golang.org/x/net/context"
-        "google.golang.org/grpc/peer"
 )
 
 func main() {

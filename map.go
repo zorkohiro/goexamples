@@ -29,8 +29,8 @@ func main() {
 	fmt.Println(m, m["zilly"])
 	fmt.Println(len(m))
 	gorp := make(map[string]zop)
-	gorp["zz"] = zop{ "zz", 23 }
-	gorp["zzx"] = zop{  "zzx", 46 }
+	gorp["zz"] = zop{"zz", 23}
+	gorp["zzx"] = zop{"zzx", 46}
 	fmt.Println(gorp["zz"], gorp["zzx"], gorp["qrt"])
 	if gorp["qrt"].name == "" {
 		fmt.Println("gorp[qrt] is undefined")

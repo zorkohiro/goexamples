@@ -1,7 +1,8 @@
 package main
+
 import (
-	"fmt"
 	"flag"
+	"fmt"
 )
 
 var debug bool

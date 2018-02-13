@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	
+
 	fhdl, err := os.Open("read.cfg")
 	if err != nil {
 		log.Fatal(err)

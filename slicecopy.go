@@ -10,7 +10,7 @@ func main() {
 	var list []string
 
 	for i := 0; i < 5; i++ {
-		list = append(list, "valuevoter" + strconv.Itoa(i))
+		list = append(list, "valuevoter"+strconv.Itoa(i))
 	}
 	fmt.Println("list", list)
 	fred := list
