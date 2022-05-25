@@ -83,9 +83,21 @@ func (me *testfs) Open(name string, flags uint32, context *fuse.Context) (nodefs
 		return nil, fuse.EPERM
 	}
 	fullname := srcdir + "/" + name
-	log.Infof("OpenDir %s", fullname)
+	log.Infof("Open %s", fullname)
 	return nil, fuse.EPERM
 	// return nodefs.NewDataFile([]byte(name)), fuse.OK
+}
+
+func init() {
+	lvl, ok := os.LookupEnv("LOG_LEVEL")
+	if !ok {
+		lvl = "info"
+	}
+	ll, err := log.ParseLevel(lvl)
+	if err != nil {
+		ll = log.DebugLevel
+	}
+	log.SetLevel(ll)
 }
 
 func main() {
